@@ -1,0 +1,201 @@
+# PDF Formatting Configuration
+# This file contains all parameters for PDF generation formatting
+#
+# Custom Settings Applied:
+# - Font: Montserrat (available) with fallbacks
+# - Code: System monospace fonts (Roboto Mono not available)
+# - Text Color: Always black (#000000) as requested
+# - Line Height: 1.15 for all text and lists
+# - Typography follows user's specifications
+
+# Page Settings
+page:
+  size: "A4"
+  margin_top: "2cm"
+  margin_bottom: "2cm"
+  margin_left: "2cm"
+  margin_right: "2cm"
+  orientation: "portrait"
+
+# Title Page Settings - Montserrat normale 26pt
+title_page:
+  font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font_size: "26pt"  # Montserrat normale 26pt
+  font_weight: "normal"
+  color: "#000000"  # Sempre nero
+  margin: "0"
+  line_height: "1.15"  # Interlinea 1.15
+  text_align: "center"
+  padding: "2cm"
+  min_height: "100vh"
+  display: "flex"
+  justify_content: "center"
+  align_items: "center"
+
+# Table of Contents Settings - Montserrat normale 12pt
+toc:
+  title_font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  title_font_size: "24pt"
+  title_font_weight: "bold"
+  title_color: "#0969da"
+  title_margin_bottom: "30px"
+  title_text_align: "center"
+  max_width: "800px"
+  margin: "0 auto"
+  list_style: "none"
+  padding: "0"
+  item_margin: "8px 0"
+  item_line_height: "1.15"  # Interlinea 1.15
+  item_font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  item_font_size: "12pt"  # Montserrat normale 12pt
+  item_font_weight: "normal"
+  link_text_decoration: "none"
+  link_color: "#000000"  # Sempre nero
+  link_hover_color: "#0969da"
+
+# Main Content Settings - Montserrat chiaro 10pt
+content:
+  font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font_size: "10pt"  # Montserrat chiaro 10pt
+  font_weight: "300"  # Light weight for normal text
+  line_height: "1.15"  # Interlinea 1.15
+  color: "#000000"  # Sempre nero
+  max_width: "none"
+  margin: "0"
+  padding: "20px"
+
+# Headers Settings - Montserrat normale
+headers:
+  color: "#000000"  # Sempre nero
+  font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font_weight: "normal"
+  line_height: "1.15"  # Interlinea 1.15
+  margin_top: "24px"
+  margin_bottom: "16px"
+  page_break_after: "avoid"
+
+  h1:
+    font_size: "26pt"  # Montserrat normale 26pt
+    margin_top: "32px"
+
+  h2:
+    font_size: "16pt"  # Montserrat normale 16pt
+    margin_top: "28px"
+
+  h3:
+    font_size: "14pt"  # Montserrat normale 14pt
+    margin_top: "24px"
+
+  h4:
+    font_size: "12pt"  # Montserrat normale 12pt
+    margin_top: "20px"
+
+  h5:
+    font_size: "16px"
+    margin_top: "16px"
+
+  h6:
+    font_size: "14px"
+    margin_top: "14px"
+
+# Text Elements
+text:
+  paragraph_margin_bottom: "16px"
+  list_margin_bottom: "16px"
+  list_line_height: "1.15"  # Spaziatura liste 1.15
+  orphans: 3
+  widows: 3
+
+# Bold Text (for emphasis) - Montserrat medio 10pt
+bold_text:
+  font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font_size: "10pt"  # Montserrat medio 10pt
+  font_weight: "500"  # Medium weight
+  color: "#000000"  # Sempre nero
+
+# Figure Captions - Montserrat chiaro italico 12pt
+figure_captions:
+  font_family: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font_size: "12pt"  # Montserrat chiaro italico 12pt
+  font_weight: "300"  # Light weight
+  font_style: "italic"
+  color: "#000000"  # Sempre nero
+  margin_top: "8px"
+  margin_bottom: "16px"
+
+# Code Elements - Monospace 9pt (Roboto Mono alternativo)
+code:
+  font_family: "'Courier New', 'Monaco', 'Menlo', 'Consolas', monospace"  # Roboto Mono alternativo
+  background_color: "#f6f8fa"
+  padding: "0.2em 0.4em"
+  border_radius: "6px"
+  font_size: "9pt"  # Monospace 9pt
+  color: "#000000"  # Sempre nero
+
+# Preformatted Code - Monospace 9pt
+pre:
+  font_family: "'Courier New', 'Monaco', 'Menlo', 'Consolas', monospace"  # Roboto Mono alternativo
+  background_color: "#f6f8fa"
+  padding: "16px"
+  border_radius: "6px"
+  overflow_x: "auto"
+  page_break_inside: "avoid"
+  font_size: "9pt"  # Monospace 9pt
+  color: "#000000"  # Sempre nero
+
+# Blockquotes
+blockquote:
+  border_left: "4px solid #d0d7de"
+  padding_left: "16px"
+  margin_left: "0"
+  color: "#000000"
+  page_break_inside: "avoid"
+
+# Tables
+table:
+  border_collapse: "collapse"
+  width: "100%"
+  margin: "16px 0"
+  page_break_inside: "avoid"
+
+table_header:
+  background_color: "#f6f8fa"
+  font_weight: "600"
+  color: "#000000"
+
+table_cell:
+  border: "1px solid #d0d7de"
+  padding: "6px 13px"
+  color: "#000000"
+  font_size: "9pt"  # Riduci leggermente la dimensione del font per leggibilità
+  word_wrap: "break-word" # Forza il ritorno a capo per contenuti lunghi
+
+# Images
+images:
+  max_width: "90%"
+  max_height: "70vh"
+  display: "block"
+  margin: "20px auto"
+  box_shadow: "0 2px 8px rgba(0,0,0,0.1)"
+  page_break_inside: "avoid"
+
+# Footer Settings
+footer:
+  content: '"Pagina " counter(page)'
+  font_size: "10pt"
+  color: "#000000"
+  position: "bottom-center"
+
+# Utility Classes
+utilities:
+  page_break: "page-break-before: always"
+  no_break: "page-break-inside: avoid"
+  box_sizing: "border-box"
+
+# Advanced Settings
+advanced:
+  css_reset: true
+  enable_page_breaks: true
+  enable_orphans_widows: true
+  enable_box_shadow: true
+  enable_smooth_scrolling: false
