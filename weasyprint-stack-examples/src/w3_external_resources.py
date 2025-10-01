@@ -527,16 +527,16 @@ def main():
         # Convert with external resources
         pdf_file = convert_html_with_external_resources(html_file, css_file)
 
-        print("
-🎉 External resources PDF generation completed!"        print(f"   HTML: {html_file}")
+        print("\n🎉 External resources PDF generation completed!")
+        print(f"   HTML: {html_file}")
         print(f"   CSS: {css_file}")
         print(f"   Output: {pdf_file}")
 
         # Demonstrate different approaches
         demonstrate_different_resource_handling()
 
-        print("
-🎯 External resources features demonstrated:"        print("   • External CSS files")
+        print("\n🎯 External resources features demonstrated:")
+        print("   • External CSS files")
         print("   • Web fonts (Google Fonts)")
         print("   • Base URL for relative paths")
         print("   • Multiple stylesheets")

@@ -433,13 +433,13 @@ def main():
         # Render with sample data
         pdf_file = convert_template_to_pdf(template_file, SAMPLE_DATA)
 
-        print("
-🎉 Template-based PDF generation completed!"        print(f"   Template: {template_file}")
+        print("\n🎉 Template-based PDF generation completed!")
+        print(f"   Template: {template_file}")
         print(f"   Data variables: {len(SAMPLE_DATA)}")
         print(f"   Output: {pdf_file}")
 
-        print("
-🎯 Template features demonstrated:"        print("   • Jinja2 templating with dynamic data")
+        print("\n🎯 Template features demonstrated:")
+        print("   • Jinja2 templating with dynamic data")
         print("   • Complex CSS layouts and tables")
         print("   • Conditional styling and formatting")
         print("   • Professional document structure")

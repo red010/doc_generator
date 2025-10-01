@@ -236,10 +236,10 @@ def main():
         # Convert to DOCX
         result = convert_markdown_to_docx(markdown_file)
 
-        print("
-🎉 DOCX conversion completed!"        print(f"   Input: {markdown_file}")
+        print("\n🎉 DOCX conversion completed!")
+        print(f"   Input: {markdown_file}")
         print(f"   Output: {result}")
-        print("   Features: TOC, numbered sections, syntax highlighting"
+        print("   Features: TOC, numbered sections, syntax highlighting")
     except Exception as e:
         print(f"\n❌ Error: {e}")
         return 1

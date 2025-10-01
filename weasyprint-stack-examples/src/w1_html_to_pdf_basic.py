@@ -304,18 +304,18 @@ def main():
 
         # Convert file to PDF
         pdf_file = convert_html_to_pdf(html_file)
-        print("
-🎉 File conversion completed!"        print(f"   Input: {html_file}")
+        print("\n🎉 File conversion completed!")
+        print(f"   Input: {html_file}")
         print(f"   Output: {pdf_file}")
 
         # Also demonstrate string conversion
-        pdf_from_string = convert_html_to_pdf.__wrapped__.__defaults__[0].parent / "demo_string.pdf"
+        pdf_from_string = BUILD / "demo_string.pdf"
         convert_html_string_to_pdf(HTML_CONTENT, pdf_from_string)
-        print("
-📝 String conversion completed!"        print(f"   Output: {pdf_from_string}")
+        print("\n📝 String conversion completed!")
+        print(f"   Output: {pdf_from_string}")
 
-        print("
-🎯 WeasyPrint features demonstrated:"        print("   • Print-optimized CSS (@page rules)")
+        print("\n🎯 WeasyPrint features demonstrated:")
+        print("   • Print-optimized CSS (@page rules)")
         print("   • Automatic page headers/footers")
         print("   • Professional typography")
         print("   • Table-based layouts")

@@ -31,7 +31,7 @@ CONVERSIONS = [
         "input": "complex_report.md",
         "outputs": [
             {"format": "pdf", "options": ["--pdf-engine=pdflatex", "--toc", "--number-sections"]},
-            {"format": "docx", "options": ["--toc", "--reference-doc=template.docx"]},
+            {"format": "docx", "options": ["--toc"]},
             {"format": "html", "options": ["--standalone", "--toc", "--css=github.css"]},
         ]
     }
@@ -243,8 +243,8 @@ def main():
         # Generate report
         report = generate_conversion_report(outputs)
 
-        print("
-🎉 Batch conversion completed!"        print(f"   Documents processed: {len(sample_files)}")
+        print("\n🎉 Batch conversion completed!")
+        print(f"   Documents processed: {len(sample_files)}")
         print(f"   Files generated: {len(outputs)}")
         print(f"   Report: {report}")
 

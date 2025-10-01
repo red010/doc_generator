@@ -6,8 +6,8 @@ authors:
 
 * "Enrico Busto"
 * "ChatGPT (GPT-5 Thinking)"
-  last_updated: "2025-09-29"
-  version: "1.1"
+  last_updated: "2025-10-01"
+  version: "1.2"
   status: "stable"
   license: "CC BY 4.0"
   tags: ["pandoc", "latex", "xelatex", "lualatex", "tectonic", "typst", "pdf", "markdown", "fontspec", "polyglossia", "babel", "CJK", "RTL", "emoji", "python", "riproducibilità"]
@@ -366,3 +366,154 @@ typst>=0.8          # "typst-py", binding Python al compilatore Typst
 * **Semplicità, velocità, template moderni** → **Pandoc → Typst**
 
 > Mantieni i **template separati dal contenuto**, cura i **font** (Noto/DejaVu + CJK/emoji), e aggiungi **test** in CI per evitare regressioni di layout.
+
+---
+
+## 12) Sviluppi Recenti e Nuove Funzionalità (v1.2)
+
+### 12.1 Nuovi Script Implementati
+
+Il sistema Pandoc è stato esteso con **5 script completi** che dimostrano funzionalità avanzate:
+
+#### **p1_markdown_to_pdf.py** - Markdown to PDF Avanzato
+- ✅ Conversione Markdown → PDF con motore XeLaTeX
+- ✅ **Configurazione font avanzata** programmatica e via YAML
+- ✅ Supporto Unicode completo (caratteri speciali, emoji)
+- ✅ Layout professionale con TOC e numerazione sezioni
+
+#### **p1_font_examples.py** - Esempi Configurazione Font
+- ✅ Dimostrazione di diverse configurazioni font
+- ✅ Font classici (Times, Helvetica, Courier)
+- ✅ Font moderni (Georgia, Verdana, Consolas)
+- ✅ Configurazione minima (fallback LaTeX)
+- ✅ Font via YAML front matter
+
+#### **p2_markdown_to_docx.py** - Markdown to DOCX
+- ✅ Conversione Markdown → DOCX con styling
+- ✅ TOC automatico e numerazione sezioni
+- ✅ Syntax highlighting per codice
+
+#### **p3_batch_conversion.py** - Conversione Batch Parallela
+- ✅ Processamento multiplo di documenti
+- ✅ Conversione simultanea in PDF, DOCX, HTML
+- ✅ Report automatici di conversione
+- ✅ Gestione errori robusta
+
+#### **p4_combine_articles_to_pdf.py** - Combinazione Articoli
+- ✅ Unione di articoli multipli in singolo PDF
+- ✅ Parsing intelligente dei nomi file (YYYY-MM-DD - Titolo)
+- ✅ Struttura automatica: Titolo → Sottotitolo data → Contenuto
+- ✅ Page break tra articoli
+- ✅ TOC generale del documento combinato
+
+#### **p5_epub_to_pdf.py** - Conversione EPUB
+- ✅ Conversione EPUB → PDF professionale
+- ✅ Estrazione automatica immagini
+- ✅ Layout ottimizzato con XeLaTeX
+- ✅ Mantenimento struttura e formattazione
+
+### 12.2 Miglioramenti Architetturali
+
+#### **Sistema di Configurazione Font Avanzato**
+```python
+# Configurazione programmatica
+config = PandocConfig.customize_fonts(
+    mainfont="Times New Roman",
+    sansfont="Arial",
+    monofont="Courier New"
+)
+
+# O via YAML front matter
+---
+mainfont: "Times New Roman"
+sansfont: "Arial"
+fontsize: 12pt
+---
+```
+
+#### **Gestione Errori Migliorata**
+- ✅ Validazione dipendenze automatica
+- ✅ Messaggi di errore informativi
+- ✅ Fallback graceful per font mancanti
+- ✅ Recupero da errori di conversione
+
+#### **Automazione Completa**
+- ✅ Script `tools/run_all.py` per esecuzione batch
+- ✅ Generazione automatica di report
+- ✅ Verifica integrità output
+- ✅ Logging dettagliato delle operazioni
+
+### 12.3 Integrazione Multi-Stack
+
+Il Pandoc Stack ora si integra perfettamente con il sistema **multi-stack** completo:
+
+- **DOCX Stack**: 4 esempi (docxtpl + templates manuali)
+- **Chromium Stack**: 3 esempi (HTML → PDF con JavaScript)
+- **Pandoc Stack**: 5 esempi (conversioni universali)
+- **WeasyPrint Stack**: 3 esempi (PDF print-optimized)
+
+**Totale: 15 esempi implementati** across 4 technology stacks.
+
+### 12.4 Best Practices Aggiornate
+
+#### **Per Font e Unicode**
+- Usa **XeLaTeX** invece di pdflatex per supporto Unicode completo
+- Preferisci famiglie **Noto** per copertura universale
+- Configura font via YAML per documenti auto-contenuti
+
+#### **Per Conversione Batch**
+- Utilizza `tools/run_all.py` per test completi
+- Monitora i report di conversione generati automaticamente
+- Gestisci dipendenze esterne (Pandoc, XeLaTeX) appropriatamente
+
+#### **Per Combinazione Documenti**
+- Struttura nomi file: `YYYY-MM-DD - Titolo.md`
+- Utilizza YAML front matter per metadati
+- Verifica page break automatici tra sezioni
+
+### 12.5 Troubleshooting Aggiornato
+
+#### **Errori Font Comuni**
+```
+! Package fontspec Error: The font "NomeFont" cannot be found
+```
+**Soluzioni:**
+- Verifica installazione font nel sistema
+- Usa font di sistema comuni (Times, Helvetica, Courier)
+- Configura `PandocConfig.create_minimal()` per fallback LaTeX
+
+#### **Errori EPUB**
+- Assicurati che Pandoc supporti il formato EPUB sorgente
+- Verifica encoding UTF-8 dei file
+- Controlla dipendenze XeLaTeX per caratteri speciali
+
+#### **Errori Batch Processing**
+- Verifica percorsi relativi corretti negli script
+- Controlla permessi di scrittura nelle directory build
+- Monitora log di errore per identificare file problematici
+
+---
+
+## 13) Roadmap e Futuri Sviluppi
+
+### **Funzionalità Pianificate**
+- Integrazione con **Typst** per rendering moderno
+- Supporto **LuaLaTeX** avanzato con pacchetti custom
+- **API REST** per conversione remota
+- Integrazione **CI/CD** con GitHub Actions
+
+### **Ottimizzazioni Previste**
+- Conversione **parallela massiva** per grandi volumi
+- **Caching intelligente** dei risultati di conversione
+- **Validazione automatica** dell'output PDF
+- **Metriche di performance** e benchmarking
+
+### **Estensioni Possibili**
+- Supporto **Markdown avanzato** (tabelle, note a piè pagina)
+- **Template personalizzati** per settori specifici
+- Integrazione con **database** per contenuti dinamici
+- **API web** per generazione on-demand
+
+---
+
+*Questa guida è stata aggiornata per riflettere gli ultimi sviluppi del sistema Pandoc Stack. Per domande o contributi, consulta la documentazione principale del progetto.*

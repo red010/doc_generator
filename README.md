@@ -7,7 +7,7 @@
 - **Current Status**: ✅ **Complete Multi-Stack Document Generation System** - DOCX, Chromium, Pandoc, WeasyPrint stacks fully implemented
 - **Target Audience**: AI Agents, Developers, Document Automation Specialists.
 - **Machine-Readable**: This `README.md` is optimized for machine parsing. Key information is structured using clear headers and bullet points.
-- **Last Updated**: 2025-09-30
+- **Last Updated**: 2025-10-01 (All syntax fixes completed, system fully operational)
 
 ## 2. Directory Structure
 
@@ -47,15 +47,19 @@ Each of the following root directories represents a self-contained technology st
 
 - **/pandoc-stack-examples/**: ✅ **FULLY IMPLEMENTED & TESTED**
   - **Technology**: Pandoc + LaTeX/PDF engines for universal document conversion.
-  - **Purpose**: Converts between multiple document formats (Markdown ↔ PDF/DOCX/HTML) with advanced formatting.
-  - **Key Achievement**: ✅ Universal document conversion with professional typography and TOC generation.
+  - **Purpose**: Converts between multiple document formats (Markdown ↔ PDF/DOCX/HTML/EPUB) with advanced formatting, font configuration, and batch processing.
+  - **Key Achievement**: ✅ Universal document conversion with professional typography, advanced font management, article combination, and EPUB support.
   - **Contains**:
-    - `src/`: 3 optimized Python scripts with complete examples:
-      - `p1_markdown_to_pdf.py`: Markdown to PDF with LaTeX templates
+    - `src/`: 5 optimized Python scripts with complete examples:
+      - `p1_markdown_to_pdf.py`: Markdown to PDF with LaTeX templates and font configuration
+      - `p1_font_examples.py`: Advanced font configuration examples (Times, Helvetica, custom fonts)
       - `p2_markdown_to_docx.py`: Markdown to DOCX with styling
       - `p3_batch_conversion.py`: Parallel batch processing of multiple documents
-    - `data/`: Markdown sources and conversion templates
+      - `p4_combine_articles_to_pdf.py`: Combine multiple articles into single PDF with proper formatting
+      - `p5_epub_to_pdf.py`: Convert EPUB files to professional PDF
+    - `data/`: Markdown sources, EPUB files, article collections, and conversion templates
     - `tools/`: Batch execution and utility scripts
+    - `guide/`: Comprehensive guides for font configuration and extended Pandoc usage
 
 - **/weasyprint-stack-examples/**: ✅ **FULLY IMPLEMENTED & TESTED**
   - **Technology**: WeasyPrint for print-optimized HTML-to-PDF conversion.
@@ -157,15 +161,21 @@ cd pandoc-stack-examples
 python tools/run_all.py
 
 # Or run individual examples:
-python src/p1_markdown_to_pdf.py       # Markdown to PDF with LaTeX
+python src/p1_markdown_to_pdf.py       # Markdown to PDF with LaTeX and font config
+python src/p1_font_examples.py         # Advanced font configuration examples
 python src/p2_markdown_to_docx.py      # Markdown to DOCX with styling
 python src/p3_batch_conversion.py      # Parallel batch processing
+python src/p4_combine_articles_to_pdf.py  # Combine articles into single PDF
+python src/p5_epub_to_pdf.py           # Convert EPUB to PDF
 ```
 
 **Output files** (in `pandoc-stack-examples/build/`):
-- `sample_report_to_pdf.pdf`: Markdown to PDF with LaTeX
-- `complex_report_to_docx.docx`: Markdown to DOCX with styling
+- `out_p1_markdown_to_pdf.pdf`: Markdown to PDF with LaTeX and custom fonts
+- `esempio_classici.pdf`, `esempio_minimal.pdf`, `esempio_yaml.pdf`: Font examples
+- `out_p2_markdown_to_docx.docx`: Markdown to DOCX with styling
 - Multiple converted files from batch processing
+- `combined_articles.pdf`: Combined article collection (350KB+)
+- `LP 500 Best Places to See.pdf`: Converted EPUB file (39MB)
 
 ### WeasyPrint Stack Examples (Print-Optimized PDF)
 
@@ -200,7 +210,7 @@ python src/w3_external_resources.py    # External CSS, fonts, and assets
 #### Technology Stack Implementation
 - **DOCX Stack**: Complete implementation with 4 examples (templating, RichText, images, template-less conversion)
 - **Chromium Stack**: Complete implementation with 3 examples (basic PDF, dashboards with charts, professional reports)
-- **Pandoc Stack**: Complete implementation with 3 examples (PDF/LaTeX, DOCX, batch processing)
+- **Pandoc Stack**: Complete implementation with 5 examples (PDF/LaTeX, font config, DOCX, batch processing, article combination, EPUB conversion)
 - **WeasyPrint Stack**: Complete implementation with 3 examples (print-optimized PDF, templating, external resources)
 
 #### Critical Issues Resolved
@@ -211,11 +221,18 @@ python src/w3_external_resources.py    # External CSS, fonts, and assets
 ### 🎯 Current Status
 - **DOCX Stack**: ✅ Complete and production-ready (4 examples)
 - **Chromium Stack**: ✅ Complete and production-ready (3 examples)
-- **Pandoc Stack**: ✅ Complete and production-ready (3 examples)
+- **Pandoc Stack**: ✅ Complete and production-ready (5 examples)
 - **WeasyPrint Stack**: ✅ Complete and production-ready (3 examples)
-- **Total Examples**: 13 complete, tested implementations across 4 technology stacks
+- **Total Examples**: 15 complete, tested implementations across 4 technology stacks
 
 ### 📚 Documentation
 - Comprehensive guides with examples and troubleshooting
 - Issue tracking with resolution documentation
 - Best practices for template creation and maintenance
+
+### 🔧 Critical Fixes Applied
+- **Syntax Errors**: Resolved unterminated string literals across all stack scripts (10+ files fixed)
+- **Unicode Support**: Upgraded Pandoc from pdflatex to xelatex for full Unicode compatibility
+- **Template Issues**: Fixed DOCX template reference errors in batch processing
+- **Function Errors**: Corrected invalid attribute access in WeasyPrint scripts
+- **Documentation**: Updated all references to reflect current script count and functionality
