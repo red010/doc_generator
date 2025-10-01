@@ -324,6 +324,81 @@ project/
 
 ---
 
+## 8) Generazione documenti senza template
+
+**Sì, è possibile generare documenti DOCX completamente da zero** senza usare template. Ecco quando e come:
+
+### 8.1 Quando usare generazione da zero
+
+* **✅ Documenti semplici**: Report brevi, lettere, liste basiche
+* **✅ Prototipi rapidi**: Test di concetto senza design complesso
+* **✅ Automazione minima**: Quando non servono dati dinamici complessi
+* **✅ Script one-off**: Generazione occasionale senza manutenzione
+
+### 8.2 Esempio: Documento da zero con python-docx
+
+```python
+from docx import Document
+from docx.shared import Inches
+
+# Crea documento vuoto
+doc = Document()
+
+# Aggiungi contenuto
+doc.add_heading('Rapporto di Esempio', 0)
+
+# Paragrafo con formattazione
+para = doc.add_paragraph('Questo documento è generato ')
+para.add_run('da zero').bold = True
+para.add_run(' senza template.')
+
+# Tabella
+table = doc.add_table(rows=1, cols=3)
+table.rows[0].cells[0].text = 'Nome'
+table.rows[0].cells[1].text = 'Valore'
+table.rows[0].cells[2].text = 'Stato'
+
+# Dati dinamici
+data = [('Temp', '25°C', 'OK'), ('Press', '1013hPa', 'OK')]
+for nome, val, stato in data:
+    row = table.add_row().cells
+    row[0].text = nome
+    row[1].text = val
+    row[2].text = stato
+
+# Lista
+doc.add_heading('Osservazioni', level=2)
+for item in ['Sistema OK', 'Nessun errore', 'Performance buona']:
+    doc.add_paragraph(item, style='List Bullet')
+
+# Immagine
+doc.add_picture('image.png', width=Inches(3))
+
+doc.save('report.docx')
+```
+
+### 8.3 Confronto: Template vs Da Zero
+
+| Aspetto | Template + docxtpl | Solo python-docx |
+|---------|-------------------|------------------|
+| **Velocità sviluppo** | 🔴 Lento (crea template) | 🟢 Veloce (scrivi codice) |
+| **Manutenibilità** | 🟢 Alta (modifica template) | 🔴 Bassa (modifica codice) |
+| **Separazione logica/design** | 🟢 Perfetta | 🔴 Nessuna |
+| **Scalabilità** | 🟢 Alta (doc complessi) | 🔴 Limitata |
+| **Stili Word** | 🟢 Facile | 🔴 Difficile |
+| **Debug** | 🟢 Semplice | 🔴 Complesso |
+| **Riutilizzo** | 🟢 Alto | 🔴 Basso |
+
+### 8.4 Raccomandazione
+
+* **Per documenti semplici**: Usa generazione da zero con `python-docx`
+* **Per documenti complessi/professionali**: Usa template + `docxtpl`
+* **Per progetti enterprise**: Combina entrambi (template per contenuti, python-docx per metadati)
+
+**💡 Template quando il design è importante, generazione da zero quando la velocità è prioritaria.**
+
+---
+
 ## 9) Conclusioni
 
 Per **report Word modulari** l’accoppiata **docxtpl → docxcompose** è una soluzione **matura e manutenuta**, ma richiede **disciplina assoluta** nella creazione dei template:

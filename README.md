@@ -4,7 +4,7 @@
 
 - **Purpose**: This repository is a comprehensive test suite and demonstration environment for experimenting with various libraries, tools, and workflows for automated document generation.
 - **Scope**: The project explores different technology "stacks" for creating documents, primarily focusing on converting structured data and Markdown into formats like `.docx` and `.pdf`.
-- **Current Status**: ✅ **Complete DOCX Stack with Advanced Features** - 3 working examples (basic, RichText, images)
+- **Current Status**: ✅ **Complete DOCX Stack with Advanced Features** - 4 examples including template-less generation
 - **Target Audience**: AI Agents, Developers, Document Automation Specialists.
 - **Machine-Readable**: This `README.md` is optimized for machine parsing. Key information is structured using clear headers and bullet points.
 - **Last Updated**: 2025-09-30
@@ -22,10 +22,11 @@ Each of the following root directories represents a self-contained technology st
   - **Purpose**: Generates Microsoft Word (`.docx`) documents from manually created templates and structured data.
   - **Key Achievement**: ✅ Resolved critical XML fragmentation issue that prevented template rendering.
   - **Contains**:
-    - `src/`: 3 optimized Python scripts with complete examples:
+    - `src/`: 4 optimized Python scripts with complete examples:
       - `a1_docxtpl_basic.py`: Basic templating with JSON data
       - `a2_richtext.py`: RichText formatting with special `{{r }}` syntax
       - `a3_images.py`: Inline image insertion
+      - `a5_python_docx_only.py`: Template-less document generation
     - `guide/`: Comprehensive documentation including troubleshooting and best practices
     - `templates/`: Manually created `.docx` template files (XML fragmentation-free)
     - `tools/`: Utility scripts for asset generation and testing
@@ -86,6 +87,7 @@ python tools/run_all.py
 python src/a1_docxtpl_basic.py         # Basic templating
 python src/a2_richtext.py              # RichText formatting
 python src/a3_images.py               # Image insertion
+python src/a5_python_docx_only.py      # Template-less generation
 ```
 
 ### Output Files
@@ -93,9 +95,13 @@ Generated documents will be saved in `docx-stack-examples/build/`:
 - `out_a1_basic.docx`: Report with structured data
 - `out_a2_richtext.docx`: Document with formatted text
 - `out_a3_images.docx`: Document with embedded images
+- `out_a5_python_docx_only.docx`: Template-less generated document
 
 ### Key Learning: Manual Template Creation
-**Critical Discovery**: Templates must be created manually in Word/LibreOffice to avoid XML fragmentation. Programmatic template generation with `python-docx` causes Jinja2 tags to be split across multiple XML runs, making them invisible to `docxtpl`.
+**Key Learnings:**
+- **Manual Template Creation**: Templates must be created manually in Word/LibreOffice to avoid XML fragmentation. Programmatic template generation with `python-docx` causes Jinja2 tags to be split across multiple XML runs, making them invisible to `docxtpl`.
+- **Template-less Generation**: For simple documents, direct `python-docx` usage provides fast prototyping without template maintenance overhead.
+- **RichText Syntax**: Use `{{r variable}}` for RichText objects in docxtpl templates.
 
 ## 4. Project Achievements
 
