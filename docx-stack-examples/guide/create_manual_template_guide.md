@@ -155,9 +155,9 @@ Caption: {{ caption }}
 
 Dopo aver creato il template, testa con:
 ```bash
-python docx-stack-examples/src/a1_docxtpl_basic.py
-# oppure per RichText:
-python docx-stack-examples/src/a2_richtext.py
+python docx-stack-examples/src/a1_docxtpl_basic.py    # Template base
+python docx-stack-examples/src/a2_richtext.py         # RichText
+python docx-stack-examples/src/a3_images.py          # Immagini
 ```
 
 Il documento generato dovrebbe ora avere tutti i campi popolati correttamente.

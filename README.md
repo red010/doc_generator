@@ -4,7 +4,7 @@
 
 - **Purpose**: This repository is a comprehensive test suite and demonstration environment for experimenting with various libraries, tools, and workflows for automated document generation.
 - **Scope**: The project explores different technology "stacks" for creating documents, primarily focusing on converting structured data and Markdown into formats like `.docx` and `.pdf`.
-- **Current Status**: ✅ **Fully Functional DOCX Stack** - Complete implementation with 3 working examples (basic templating, RichText, and images)
+- **Current Status**: ✅ **Complete DOCX Stack with Advanced Features** - 3 working examples (basic, RichText, images)
 - **Target Audience**: AI Agents, Developers, Document Automation Specialists.
 - **Machine-Readable**: This `README.md` is optimized for machine parsing. Key information is structured using clear headers and bullet points.
 - **Last Updated**: 2025-09-30
@@ -83,9 +83,9 @@ cd docx-stack-examples
 python tools/run_all.py
 
 # Or run individual examples:
-python src/a1_docxtpl_basic.py    # Basic templating
-python src/a2_richtext.py         # RichText formatting
-python src/a3_images.py          # Image insertion
+python src/a1_docxtpl_basic.py         # Basic templating
+python src/a2_richtext.py              # RichText formatting
+python src/a3_images.py               # Image insertion
 ```
 
 ### Output Files

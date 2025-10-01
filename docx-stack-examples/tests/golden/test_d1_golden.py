@@ -12,6 +12,7 @@ CASES = [
     ("src.a1_docxtpl_basic", "out_a1_basic.docx", "a1_basic.xml"),
     ("src.a2_richtext", "out_a2_richtext.docx", "a2_richtext.xml"),
     ("src.a3_images", "out_a3_images.docx", "a3_images.xml"),
+    ("src.a4_documentation_generator", "out_a4_documentation.docx", "a4_documentation.xml"),
 ]
 
 def run_and_get_xml(mod_name: str, out_name: str) -> str:
