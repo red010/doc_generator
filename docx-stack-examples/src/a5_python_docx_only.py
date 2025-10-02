@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 BUILD.mkdir(exist_ok=True)
 SOURCE_MD = ROOT / "guide" / "docx_docxtpl_docxcompose.md"
-OUT = BUILD / "out_a5_markdown_to_docx.docx"
+OUT = BUILD / "out_a5_python_docx_only.docx"
 
 
 class MarkdownToDocxConverter:

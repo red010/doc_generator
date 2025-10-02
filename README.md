@@ -7,7 +7,7 @@
 - **Current Status**: ✅ **Complete Multi-Stack Document Generation System** - DOCX, Chromium, Pandoc, WeasyPrint stacks fully implemented
 - **Target Audience**: AI Agents, Developers, Document Automation Specialists.
 - **Machine-Readable**: This `README.md` is optimized for machine parsing. Key information is structured using clear headers and bullet points.
-- **Last Updated**: 2025-10-01 (All syntax fixes completed, system fully operational)
+- **Last Updated**: 2025-10-02 (Added advanced DOCX templating with PDF output example)
 
 ## 2. Directory Structure
 
@@ -125,13 +125,15 @@ python src/a1_docxtpl_basic.py         # Basic templating with JSON data
 python src/a2_richtext.py              # RichText formatting with {{r }} syntax
 python src/a3_images.py               # Inline image insertion
 python src/a5_python_docx_only.py      # Markdown-to-DOCX (no templates)
+python src/a6_docxtpl_advanced.py      # Advanced templating with PDF output
 ```
 
 **Output files** (in `docx-stack-examples/build/`):
 - `out_a1_basic.docx`: Report with structured data
 - `out_a2_richtext.docx`: Document with formatted text
 - `out_a3_images.docx`: Document with embedded images
-- `out_a5_markdown_to_docx.docx`: DOCX converted from Markdown (no templates)
+- `out_a5_python_docx_only.docx`: DOCX converted from Markdown (no templates)
+- `out_a6_advanced.docx` & `out_a6_advanced.pdf`: Advanced templating with PDF conversion
 
 ### Chromium Stack Examples (Playwright + Chromium)
 
@@ -208,7 +210,7 @@ python src/w3_external_resources.py    # External CSS, fonts, and assets
 ### ✅ Major Achievements
 
 #### Technology Stack Implementation
-- **DOCX Stack**: Complete implementation with 4 examples (templating, RichText, images, template-less conversion)
+- **DOCX Stack**: Complete implementation with 5 examples (templating, RichText, images, template-less conversion, advanced PDF output)
 - **Chromium Stack**: Complete implementation with 3 examples (basic PDF, dashboards with charts, professional reports)
 - **Pandoc Stack**: Complete implementation with 5 examples (PDF/LaTeX, font config, DOCX, batch processing, article combination, EPUB conversion)
 - **WeasyPrint Stack**: Complete implementation with 3 examples (print-optimized PDF, templating, external resources)
@@ -219,11 +221,11 @@ python src/w3_external_resources.py    # External CSS, fonts, and assets
 - **Template Creation Best Practices**: Established manual template creation as the gold standard
 
 ### 🎯 Current Status
-- **DOCX Stack**: ✅ Complete and production-ready (4 examples)
+- **DOCX Stack**: ✅ Complete and production-ready (5 examples)
 - **Chromium Stack**: ✅ Complete and production-ready (3 examples)
 - **Pandoc Stack**: ✅ Complete and production-ready (5 examples)
 - **WeasyPrint Stack**: ✅ Complete and production-ready (3 examples)
-- **Total Examples**: 15 complete, tested implementations across 4 technology stacks
+- **Total Examples**: 16 complete, tested implementations across 4 technology stacks
 
 ### 📚 Documentation
 - Comprehensive guides with examples and troubleshooting
