@@ -215,7 +215,7 @@ def render(output_path: Optional[Path] = None) -> Path:
 
     print(f"✅ Documentazione generata: {output_path}")
     print(f"   Sezioni: {len(docx_data['sections'])}")
-    print(f"   Titolo: {docx_data['document_title']}")
+    print(f"   Titolo: {docx_data['documenttitle']}")
 
     return output_path
 
